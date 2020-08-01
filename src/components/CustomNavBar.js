@@ -93,10 +93,12 @@ export default function CustomNavBar(props) {
 
     let handleHomePageClick = () => {
         history.push("/");
+        setAnchorEl(null);
     };
 
     let handleMyFavoriteClick = () => {
         history.push("/Favorite");
+        setAnchorEl(null);
     };
 
     let handleSearchChange = (prop) => (event) => {

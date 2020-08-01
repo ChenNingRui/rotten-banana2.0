@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import CustomNavBar from './components/CustomNavBar';
+import CustomHomePage from './components/CustomHomePage';
+import CustomSearchPage from './components/CustomSearchPage';
+import CustomFavoritePage from './components/CustomFavoritePage';
 
-function App() {
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+function App(props) {
+  /* jshint ignore:start */
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <CustomNavBar />
+        <Switch>
+          <Route exact path="/Search" component={CustomSearchPage} />
+          <Route exact path="/" component={CustomHomePage} />
+          <Route exact path="/Favorite" component={CustomFavoritePage} />
+        </Switch>
+      </Router>
+    </div >
   );
+  /* jshint ignore:end */
 }
 
 export default App;
